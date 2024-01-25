@@ -4,16 +4,22 @@ import question3.tp3.PileI;
 import question3.tp3.PileVideException;
 import question3.tp3.PilePleineException;
 
-public class PileModele<T> extends  java.util.Observable implements PileI<T> {
+public class PileModele<T> extends java.util.Observable implements PileI<T> {
 
     private PileI<T> pile;
 
-    /* à compléter */
-
+    // A completer
     public PileModele(PileI<T> pile) {
         this.pile = pile;
     }
-
+    
+    public void vider() {
+        try {
+            while (!pile.estVide())
+                pile.depiler();
+        } catch(PileVideException pve) { }
+    }
+    
     public void empiler(T o) throws PilePleineException {
       pile.empiler(o);
       setChanged();
@@ -21,11 +27,11 @@ public class PileModele<T> extends  java.util.Observable implements PileI<T> {
     }
 
     public T depiler() throws PileVideException {
-        return null;
+        return pile.depiler();
     }
 
     public T sommet() throws PileVideException {
-        return null;
+        return pile.sommet();
     }
 
     public int taille() {

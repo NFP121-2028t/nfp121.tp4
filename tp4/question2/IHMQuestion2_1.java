@@ -11,7 +11,11 @@ public class IHMQuestion2_1 extends JFrame {
     private JButton boutonC = new JButton("C");
 
     private TextArea contenu = new TextArea(30, 80);
-
+    
+    // JButtonObservers
+    private JButtonObserver jbo1 = new JButtonObserver("jbo1", contenu);
+    private JButtonObserver jbo2 = new JButtonObserver("jbo2", contenu);
+    private JButtonObserver jbo3 = new JButtonObserver("jbo3", contenu);
  
     public IHMQuestion2_1() {
         super("IHM Question2_1");
@@ -21,24 +25,41 @@ public class IHMQuestion2_1 extends JFrame {
         enHaut.add(boutonC);
         setLayout(new BorderLayout(5, 5));
         add("North", enHaut);
-        add("Center", contenu); // contenu sera transmis aux observateurs, voir
-                                // la description des constructeurs
+        add("Center", contenu); // contenu sera transmis aux observateurs, voir la description des constructeurs
         enHaut.setBackground(Color.blue);
         setLocation(100,100);
-        pack();show();
+        pack(); show();
 
-        // à compléter
         // le bouton A a 3 observateurs jbo1, jbo2 et jbo3
-
+        boutonA.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                contenu.setText("");
+                jbo1.actionPerformed(e);
+                jbo2.actionPerformed(e);
+                jbo3.actionPerformed(e);
+            }
+        });
+        
         // le bouton B a 2 observateurs jbo1 et jbo2
-
+        boutonB.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                contenu.setText("");
+                jbo1.actionPerformed(e);
+                jbo2.actionPerformed(e);
+            }
+        });
+        
         // le bouton C a 1 observateur jbo1
-
+        boutonC.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                contenu.setText("");
+                jbo1.actionPerformed(e);
+            }
+        });
       
     }
     
     public static void main(String[] args){
         new IHMQuestion2_1();
     }
-
 }

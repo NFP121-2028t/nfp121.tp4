@@ -22,7 +22,7 @@ public class IHMCalculetteTest extends junit.framework.TestCase{
 
     private JFrame f;
     private Robot robot;
-    private static Random random= new Random();
+    private static Random random = new Random();
 
     /**
      * Met en place les engagements.
@@ -40,7 +40,6 @@ public class IHMCalculetteTest extends junit.framework.TestCase{
             f.setLocation(random.nextInt(500), random.nextInt(500));
             robot = new Robot();
             robot.delay(10);
-
         }catch(Exception e){
             fail("exception inattendue !, " + e.getClass().getName());
         }
@@ -51,12 +50,13 @@ public class IHMCalculetteTest extends junit.framework.TestCase{
      *
      * Méthode appelée après chaque appel de méthode de test.
      */
-    protected void tearDown(){ // throws java.lang.Exception
+    protected void tearDown() { // throws java.lang.Exception
         f.dispose();
     }
 
-    public void test_IHMCalculette_addition() throws Exception{
-        try{
+    
+    public void test_IHMCalculette_addition() throws Exception {
+        try {
             Container panel = f.getContentPane();
             Component[] components = panel.getComponents();
             assertEquals(" ce n'est pas l'IHM attendue ?", 2, components.length);
@@ -72,21 +72,22 @@ public class IHMCalculetteTest extends junit.framework.TestCase{
 
             assertTrue(" ce n'est pas l'IHM attendue ?", controle[0] instanceof JTextField);
             Component[] subComponents = ((JPanel)controle[1]).getComponents();
-            assertTrue(" ce n'est pas l'IHM attendue ?", subComponents[0] instanceof JButton);// push
-            assertTrue(" ce n'est pas l'IHM attendue ?", subComponents[1] instanceof JButton);// +
-            assertTrue(" ce n'est pas l'IHM attendue ?", subComponents[2] instanceof JButton);// -
-            assertTrue(" ce n'est pas l'IHM attendue ?", subComponents[3] instanceof JButton);// *
-            assertTrue(" ce n'est pas l'IHM attendue ?", subComponents[4] instanceof JButton);// /
+            assertTrue(" ce n'est pas l'IHM attendue ?", subComponents[0] instanceof JButton); // push
+            assertTrue(" ce n'est pas l'IHM attendue ?", subComponents[1] instanceof JButton); // +
+            assertTrue(" ce n'est pas l'IHM attendue ?", subComponents[2] instanceof JButton); // -
+            assertTrue(" ce n'est pas l'IHM attendue ?", subComponents[3] instanceof JButton); // *
+            assertTrue(" ce n'est pas l'IHM attendue ?", subComponents[4] instanceof JButton); // /
 
             empiler("15");
-            assertTrue("empiler(15), en sortie != [15]","[15]".equals(etatPile.getText()));
+            assertTrue("empiler(15), en sortie != [15] (" + etatPile.getText() + ")"
+                    ,"[15]".equals(etatPile.getText()));
             empiler("12");
             assertTrue("empiler(15),empiler(12) en sortie != [12, 15]","[12, 15]".equals(etatPile.getText()));
             assertTrue("15+12 != 27 ???","[27]".equals(add()));
             empiler("12");
             assertTrue("[12, 27]".equals(etatPile.getText()));
             assertTrue("27 + 12 != 39 ??? ","[39]".equals(add()));
-        }catch(Exception e){
+        } catch(Exception e) {
             fail("exception inattendue ! " + e.getClass().getName());
         }
     }
@@ -127,7 +128,7 @@ public class IHMCalculetteTest extends junit.framework.TestCase{
     }
 
    
-	
+    
     public void test_IHMCalculette_MauvaisFormatDuNombre() throws Exception{
         try{
             Container panel = f.getContentPane();
@@ -305,6 +306,4 @@ public class IHMCalculetteTest extends junit.framework.TestCase{
         robot.mouseRelease(InputEvent.BUTTON1_MASK);
         robot.delay(10);
     }//end mouseMoveAndClickClick
-
-  
 }

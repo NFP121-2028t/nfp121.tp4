@@ -121,5 +121,4 @@ public class IHMQuestion2_1Test extends junit.framework.TestCase
         robot.mouseRelease(InputEvent.BUTTON1_MASK);
         robot.delay(60);
     }//end mouseMoveAndClick
-
 }
