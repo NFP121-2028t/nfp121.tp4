@@ -1,18 +1,18 @@
 #BlueJ package file
-dependency1.from=Pile2
+dependency1.from=PileI
 dependency1.to=PilePleineException
 dependency1.type=UsesDependency
-dependency2.from=Pile2
+dependency2.from=PileI
 dependency2.to=PileVideException
 dependency2.type=UsesDependency
 dependency3.from=Pile2
-dependency3.to=PileI
+dependency3.to=PilePleineException
 dependency3.type=UsesDependency
-dependency4.from=PileI
-dependency4.to=PilePleineException
+dependency4.from=Pile2
+dependency4.to=PileVideException
 dependency4.type=UsesDependency
-dependency5.from=PileI
-dependency5.to=PileVideException
+dependency5.from=Pile2
+dependency5.to=PileI
 dependency5.type=UsesDependency
 objectbench.height=92
 objectbench.width=761

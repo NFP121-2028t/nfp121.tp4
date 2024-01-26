@@ -92,5 +92,4 @@ public class Pile2<T> implements PileI<T> {
     public int capacite() {
         return this.capacite;
     }
-
 }

@@ -13,5 +13,4 @@ public interface PileI<T>{
     public boolean estVide();
     public boolean estPleine();
     public String toString();
-
 }
